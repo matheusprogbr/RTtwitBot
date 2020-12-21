@@ -3,7 +3,7 @@ const BotRetweet = require('../scripts/BotRetweet');
 
 module.exports = async () => {
   const query = {
-    q: 'felps',
+    q: 'cyberpunk bug',
     result_type: 'recent',
   };
   const lastId = {

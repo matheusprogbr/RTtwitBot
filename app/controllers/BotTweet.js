@@ -1,10 +1,13 @@
 const Bot = require('../bot/bot');
-const mathRandom = require('../utils/mathRandom');
-const rawTweet = require('../utils/data/tweet');
+const daddyJokes = require('../utils/daddyJokes');
 
-module.exports = () => {
+module.exports = async () => {
+  const response = await daddyJokes();
+
+  console.log(response[0].setup + response[0].punchline);
+
   const tweet = {
-    status: rawTweet.status[mathRandom(0, 11)],
+    status: `${response[0].setup}\nPunchline: ${response[0].punchline}`,
   };
 
   Bot.post('/statuses/update', tweet, (err, response) => {
